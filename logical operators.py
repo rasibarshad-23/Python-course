@@ -12,9 +12,9 @@ else:
     print("Outdoor event is scheduled as per routine.")
 
 
-is_sunny = True
+is_sunny = False
 
-if temp >= 25 and is_sunny:
+if temp >= 25 and  not is_sunny:
     print("It is HOT outside AND it is sunny.")
 elif temp < 0:
     print("It is COLD outside AND it is sunny.")
