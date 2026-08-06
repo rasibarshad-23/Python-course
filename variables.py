@@ -26,3 +26,7 @@ if is_student:
     print("I am a student")
 else:
     print("I am not a student")
+
+#None
+a = None
+print(type(a))
