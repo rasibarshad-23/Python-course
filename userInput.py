@@ -6,6 +6,7 @@ age = int(input("How old are you: "))
 age += 1
 
 print(f"Your name is {name}")
+print("Your name is ", name) #both are same -> either simple or fstring
 print(f"You are {age} years old")
 
 #exercise to calculate the area of rectangle
