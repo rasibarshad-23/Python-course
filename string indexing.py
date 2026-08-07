@@ -14,3 +14,6 @@ print(f"XXXXX-XXXX{last_digits}")
 
 backward = NID_no[::-1]
 print(f"Backward NID no: {backward}")
+
+#if length is not known, use len function to print the whole string
+print(NID_no[:len(NID_no)])
