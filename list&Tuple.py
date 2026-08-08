@@ -58,11 +58,35 @@
 # print(tuple.index(2)) #returns the index of first occurence of element
 # print(tuple.count(5)) #returns the total occurences of an element in the tuple
 
-# exercise
-movie1 = (input("Enter name of your 1st favourite movies: "))
-movie2 = (input("Enter name of your 2nd favourite movies: "))
-movie3 = (input("Enter name of your 3rd favourite movies: "))
+# # exercise
+# fav_movies = []
 
-fav_movies = ["", ]
-fav_movies = fav_movies.append(movie1)
-print(fav_movies)
+# fav_movies.append((input("Enter name of your 1st favourite movies: ")))
+# fav_movies.append((input("Enter name of your 2nd favourite movies: ")))
+# fav_movies.append((input("Enter name of your 3rd favourite movies: ")))
+
+# print(fav_movies)
+
+# #exercise
+# user_list = []
+# user_list.append(input("Enter the element of list: "))
+# user_list.append(input("Enter the element of list: "))
+# user_list.append(input("Enter the element of list: "))
+# user_list.append(input("Enter the element of list: "))
+
+# copy_list = user_list.copy()
+# copy_list.reverse()
+
+# if(user_list == copy_list):
+#     print("Palindrome.")
+# else:
+#     print("NOT.")
+
+# exercise
+Tuple = ("C", "B", "A", "A", "D", "A", "C")
+count = Tuple.count("A")
+print("No. of students with grade 'A': ", count)
+
+list_std = ["C", "B", "A", "A", "D", "A", "C"]
+list_std.sort()
+print(list_std)
