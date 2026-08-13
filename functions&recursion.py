@@ -23,7 +23,7 @@ sum = calc_sum()
 print(sum)
 
 # Exercise
-def calc_length(a:list):
+def calc_length(a):
     return len(a)
 
 num = [1, 2, 3, 4, 5]
@@ -31,7 +31,7 @@ length = calc_length(num)
 print("Length of list: ", length)
 
 # Exercise
-def print_ele(a:list):
+def print_ele(a):
     for i in range(0, len(a)):
         print(a[i], end=" " ) # to print on the same line
 
@@ -78,7 +78,7 @@ def show(a):
 
 show(5)
 
-# def fact(a):
+def fact(a):
     if a == 0 or a == 1:
         return 1
     else:
@@ -98,7 +98,7 @@ result = calc_sum(5)
 print("Sum: ", result)
 
 # Exercise
-def print_ele(a:list, idx = 0):
+def print_ele(a, idx = 0):
     if idx == len(list):
         return
     print(a[idx], end=" ")
@@ -106,3 +106,67 @@ def print_ele(a:list, idx = 0):
 
 list = [1, 2, 3, 4]
 print_ele(list)
+
+# Exercise
+def print_name(i):
+    if i == 10:
+        return
+    print("Rasib", i)
+    print_name(i + 1)
+
+print_name(0)
+
+# Exercise
+def power_func(num, pow):
+    if pow == 0:
+       return 1
+    return power_func(num , pow - 1) * num
+
+result = power_func(2, 5)
+print("Answer: ", result)
+
+
+# Exercise
+def prime_num(num, i):
+    if i == 1:
+        return 0
+    if num % i == 0:
+        return 1
+    return prime_num(num, i - 1) 
+
+n = 4
+ind = prime_num(n, n - 1)
+if ind == 0:
+    print("Prime.")
+else:
+    print("Not Prime.")
+
+# Exercise
+def count(n):
+    if n < 10:
+        return 1
+    return count(n/10) + 1
+
+result = count(11111)
+print("Dgigits: ", result)
+
+# Exercise
+def sum_of_n(n):
+    if n == 0:
+        return 0
+    return sum_of_n(n - 1) + n
+result = sum_of_n(4)
+print("Sum till the number: ", result)
+
+# Exercise
+def fibonacci_series(n):
+    if n == 1:
+        return 0
+    if n == 2:
+        return 1
+    return (fibonacci_series(n - 2) + fibonacci_series(n - 1))
+
+n = 10
+for i in range(1, n + 1):
+    result = fibonacci_series(i)
+    print(result, end=" ")
