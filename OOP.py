@@ -123,37 +123,88 @@
 # print(user1.account_no)
 # print(user1.__account_pass) # It becomes hidden for user
 
-# Inheritance -> One class (child) inherits the properties and methods of another class (parent)
-# Single Inheritance
-class Car: # Parent class
+# # Inheritance -> One class (child) inherits the properties and methods of another class (parent)
+# # Single Inheritance
+# class Car: # Parent class
+#     @staticmethod
+#     def start():
+#         print("Car started...")
+
+#     @staticmethod
+#     def stop():
+#         print("Car stopped...")
+
+# class ToyotaCar(Car): # Child class -> Inherits from Car (Parent class)
+#     def __init__(self, brand):
+#         self.brand = brand
+
+#     @staticmethod
+#     def demo():
+#         print("Function of ToyotaCar class")
+
+# # Multi-Level Inheritance
+# class VitzCar(ToyotaCar): # Grand child -> Inherits from ToyotaCar (parent) -> Inherits form Car (grand parent)
+#     def __init__(self, type):
+#         self.type = type
+
+#     @staticmethod
+#     def demo1():
+#         print("Function of vitzCar class")
+
+
+# vitz1 = VitzCar("Electric (PHEV)")
+# vitz1.start() # Function of Car (grandparent)
+# vitz1.demo() # Function of ToyotaCar (parent)
+# vitz1.demo1() # Function of VitzCar (child)
+# vitz1.stop() # Function of Car (grandparent)
+
+# # Multiple Inheritance -> Child inherits from multiple parents
+# class A:
+#     varA = "I am Class A."
+
+# class B:
+#     varB = "I am class B." 
+
+# class C(A, B): # Inherited from multiple classes (Parents)
+#     varC = "I am class C."
+
+# demo = C()
+# print(demo.varC) # Accessing own variable
+# print(demo.varB) # Accessing varaible of 2nd parent
+# print(demo.varA) # Accessing variable of 1st parent
+
+# # Super method -> For accessing methods and data of parent class
+# class Car:
+#     def __init__(self, type):
+#         self.type = type
+
+#     @staticmethod
+#     def start():
+#         print("Car is started.")
+
+# class ToyotaCar(Car):
+#     def __init__(self, name, type):
+#         super().__init__(type) # calls the parent consturctor and assigns value to type
+#         self.name = name
+#         super().start()
+
+# car1 = ToyotaCar("Vitz", "PHEV")
+# print(car1.name)
+# print(car1.type)
+
+# Class methods
+class A:
+    name  = "Anonymous"
     @staticmethod
-    def start():
-        print("Car started...")
+    def hello():
+        print("Hello.")
 
-    @staticmethod
-    def stop():
-        print("Car stopped...")
+    @classmethod
+    def changeName(cls):
+        cls.name = "Rasib" # Changes the default value of name from anonymous to Rasib
 
-class ToyotaCar(Car): # Child class -> Inherits from Car (Parent class)
-    def __init__(self, brand):
-        self.brand = brand
-
-    @staticmethod
-    def demo():
-        print("Function of ToyotaCar class")
-
-# Multi-Level Inheritance
-class VitzCar(ToyotaCar): # Grand child -> Inherits from ToyotaCar (parent) -> Inherits form Car (grand parent)
-    def __init__(self, type):
-        self.type = type
-
-    @staticmethod
-    def demo1():
-        print("Function of vitzCar class")
-
-
-vitz1 = VitzCar("Electric (PHEV)")
-vitz1.start() # Function of Car (grandparent)
-vitz1.demo() # Function of ToyotaCar (parent)
-vitz1.demo1() # Function of VitzCar (child)
-vitz1.stop() # Function of Car (grandparent)
+person1 = A()
+print(person1.name) # Before changing the name
+person1.changeName()
+print(person1.name) # After changing the name
+print(A.name) # Changed for class
