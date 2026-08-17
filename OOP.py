@@ -192,19 +192,118 @@
 # print(car1.name)
 # print(car1.type)
 
-# Class methods
-class A:
-    name  = "Anonymous"
-    @staticmethod
-    def hello():
-        print("Hello.")
+# # Class methods
+# class A:
+#     name  = "Anonymous"
+#     @staticmethod
+#     def hello():
+#         print("Hello.")
 
-    @classmethod
-    def changeName(cls):
-        cls.name = "Rasib" # Changes the default value of name from anonymous to Rasib
+#     @classmethod
+#     def changeName(cls):
+#         cls.name = "Rasib" # Changes the default value of name from anonymous to Rasib
 
-person1 = A()
-print(person1.name) # Before changing the name
-person1.changeName()
-print(person1.name) # After changing the name
-print(A.name) # Changed for class
+# person1 = A()
+# print(person1.name) # Before changing the name
+# person1.changeName()
+# print(person1.name) # After changing the name
+# print(A.name) # Changed for class -> common attribute -> name = "Rasib"
+
+# # @property decorator -> returns latest value from a method (turns method into attribute)
+# class Student:
+#     def __init__(self, maths, phy, chem):
+#         self.maths = maths
+#         self.phy = phy
+#         self.chem = chem
+
+#     @property
+#     def percentage(self):
+#         return str(round((self.maths + self.phy + self.chem) / 3, 2)) + "%"
+
+# std1 = Student(98, 97, 94)
+# print(std1.percentage) # prints latest calculated percentage
+# std1.phy = 92 # Value of attribute changed
+# print(std1.percentage) # prints updated percentage
+
+# # Polymorphism -> using one thing in many form (operator overloading)
+# class Complex:
+#     def __init__(self, real, img):
+#         self.real = real
+#         self.img = img
+
+#     def show(self):
+#         print(self.real, "i + ", self.img, "j")
+
+#     def __add__(self, num2): # Dunder function for overloading + operator
+#         newReal = self.real + num2.real
+#         newImg = self.img + num2.img
+#         return Complex(newReal, newImg)
+
+#     def __sub__(self, num2): # Dunder function for overloading - operator
+#         newReal = self.real - num2.real
+#         newImg = self.img - num2.img
+#         return Complex(newReal, newImg)
+
+# num1 = Complex(4, 3)
+# num1.show()
+# num2 = Complex(3, 2)
+# num2.show()
+# num3 = num1 + num2 # Simple add operator can now add two complex numbers using operator overloading
+# num3.show()
+# num4 = num1 - num2 # Subtraction operator overloaded
+# num4.show()
+
+
+#  # Exercise
+# import math
+# class Circle:
+#     def __init__(self, radius):
+#         self.radius = radius
+
+#     def Area(self):
+#         return (round(math.pi * pow(self.radius, 2), 2))
+
+#     def Perimeter(self):
+#         return (round(2 * math.pi * self.radius, 2))
+
+# circle1 = Circle(4)
+# print("Area of circle is: ", circle1.Area(), "cm^2")
+# print("Perimeter of circle is: ", circle1.Perimeter(), "cm")
+
+# # Exercise
+# class Employee:
+#     def __init__(self, role, dept, salary):
+#         self.role = role
+#         self.dept = dept
+#         self.salary = salary
+
+#     def showDetails(self):
+#         print("Role: ", self.role)
+#         print("Department: ", self.dept)
+#         print("Salary: ", self.salary)
+
+# class Engineer(Employee):
+#     def __init__(self, name, age, role, dept, salary):
+#         super().__init__(role, dept, salary)
+#         self.name = name
+#         self.age = age
+        
+
+# e1 = Engineer("Rasib", 20, "Software Engineer", "IT", 400000)
+# e1.showDetails()
+
+# Exercise
+class Order:
+    def __init__(self, item, price):
+        self.item = item
+        self.price = price
+
+    def __gt__(self, order2):
+        return self.price > order2.price
+
+order1 = Order("Football", 1200)
+order2 = Order("Tennis ball", 450)
+if order1 > order2:
+    print(order1.item, " has greater price.")
+else:
+    print(order2.item, "has greater price.")
